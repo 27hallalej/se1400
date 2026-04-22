@@ -1,0 +1,129 @@
+/* Basic Styles */
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    background-color: #111111; /* Shocking Black */
+    color: #E7DDFF; /* Light Lavender Text */
+}
+
+/* Grid Layout - Required Formulation */
+.parent {
+    display: grid;
+    grid-template-columns: minmax(0px, 1fr) repeat(8, minmax(0, 175px)) minmax(0px, 1fr);
+    grid-template-rows: auto auto auto auto;
+    gap: 10px;
+    grid-template-areas:
+        "h h h h h h h h h h"
+        "n n n n n n n n n n"
+        "sl mc mc mc mc mc mc mc mc sr"
+        "f f f f f f f f f f";
+}
+
+div .links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.links a {
+    text-align: center;
+    color: #cea2ee; /* Floral Lavender */
+    text-decoration: none;
+}
+
+.links a:hover, .main-content a:hover {
+    color: #e6caff; /* Baby Violet */
+}
+
+/* Grid Item Placement */
+.header { grid-area: h; }
+.nav { grid-area: n; }
+.sidebar-left { grid-area: sl; }
+.main-content { grid-area: mc; }
+.sidebar-right { grid-area: sr; }
+.footer { grid-area: f; }
+
+/* Grid Item Styling - Lavender and Black */
+.grid-item, .nav-item {
+    background-color: #333333; /* Dark Charcoal */
+    padding: 20px;
+    border: 1px solid #4B3B61; /* Dark Anchor Purple */
+}
+
+.header, .footer {
+    background-color: #1a1a1a;
+    text-align: center;
+    color: #b680da; /* Pastel Grape */
+}
+
+.footer a {
+    color: inherit;
+}
+
+.img-header {
+  position: relative; /* Acts as the anchor for the h2 */
+  display: inline-block; /* Keeps container same size as image */
+  display: grid;
+  grid-template-columns: 1fr; /* 200px fixed, 1fr fills the rest */
+}
+
+.img-header img {
+    width: 100%;
+    height: 100px;
+    object-fit: fill;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.img-header h2 {
+  position: absolute;
+  top: 50%;         /* Position from top */
+  left: 50%;        /* Position from left */
+  transform: translate(-50%, -50%); /* Perfectly centers the text */
+  color: #333333;     /* Ensures text is visible */
+  margin: 0;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Main Content Sectioning (Using Flexbox for inner layout) */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-content a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-content h3 {
+    text-decoration: underline 2px;
+}
+
+.content-top {
+    border-bottom: 2px solid #B57EDC;
+    padding-bottom: 15px;
+}
+
+.featured-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Specific Content Areas */
+.content-mid-left, .content-mid-right, 
+.content-low-left, .content-low-right {
+    background-color: #212121;
+    padding: 15px;
+}
+
+/* Blog */
+.blog img {
+    width: 100%;
+    height: 100%;
+}
