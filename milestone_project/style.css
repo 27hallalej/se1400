@@ -1,0 +1,573 @@
+/* Basic Styles */
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    background-color: #111111; /* Shocking Black */
+    color: #debef5; /* Light Lavender Text */
+}
+
+/* Grid Layout - Required Formulation */
+.parent {
+    display: grid;
+    grid-template-columns: minmax(0px, 1fr) repeat(8, minmax(0, 175px)) minmax(0px, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    grid-template-areas:
+        "h h h h h h h h h h"
+        "sl mc mc mc mc mc mc mc mc sr"
+        "f f f f f f f f f f";
+}
+
+/* Top nav bar */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+div .links {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.links a {
+    height: 5rem;
+    width: 10rem;
+    position: relative;
+    padding: 5px 10px;
+    background: #111111;
+    color: #b680da;
+    text-decoration: none;
+    z-index: 1;
+    display: inline-block;
+    border: 3px solid transparent; /* Reserve space for the gradient */
+    transition: color 0.3s;
+}
+
+.links a span {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 5rem;
+}
+
+.links a::before {
+    content: '';
+    position: absolute;
+    inset: -3px;              /* Expand to the edge of the border */
+    z-index: -1;
+    padding: 3px;             /* Border thickness */
+    background: conic-gradient(from var(--angle), #cea2ee, #ead1ff, #cc9cee);
+    /* Masking trick to show only the border area */
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transition: --angle 0.6s ease;
+}
+
+.links a:hover::before {
+    --angle: 360deg;
+}
+
+.links a span {
+    z-index: 2;
+    font-weight: bold;
+}
+
+.links a:hover, .main-content a:hover, .footer a:hover {
+    color: #e6caff; /* Baby Violet */
+}
+
+/* Grid Item Placement */
+.header { grid-area: h; }
+.nav { grid-area: n; }
+.sidebar-left { grid-area: sl; }
+.main-content { grid-area: mc; }
+.sidebar-right { grid-area: sr; }
+.footer { grid-area: f; }
+
+/* Grid Item Styling - Lavender and Black */
+.grid-item {
+    background-color: #333333; /* Dark Charcoal */
+    padding: 20px;
+    border: 1px solid #4B3B61; /* Dark Anchor Purple */
+}
+
+.header, .footer {
+    background-color: #4B3B61;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Header Layout */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.header-logo {
+    flex: 0 0 auto;
+}
+
+.header-logo .logo {
+    max-width: 80px;
+    height: auto;
+}
+
+.header-nav {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+}
+
+.header-nav .links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header-nav .links a {
+    height: 3rem;
+    padding: 5px 15px;
+}
+
+.header-nav .links a span {
+    height: 3rem;
+}
+
+.header-social {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 15px;
+}
+
+.header-social a {
+    color: #b680da;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-social a:hover {
+    color: #e6caff;
+}
+
+.footer a {
+    color: inherit;
+}
+
+.img-header {
+  position: relative; /* Acts as the anchor for the h2 */
+  display: inline-block; /* Keeps container same size as image */
+  display: grid;
+  grid-template-columns: 1fr; /* 200px fixed, 1fr fills the rest */
+}
+
+.img-header img {
+    width: 100%;
+    height: 100px;
+    object-fit: fill;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.img-header h2 {
+  position: absolute;
+  top: 50%;         /* Position from top */
+  left: 50%;        /* Position from left */
+  transform: translate(-50%, -50%); /* Perfectly centers the text */
+  color: #333333;     /* Ensures text is visible */
+  margin: 0;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Main Content Sectioning (Using Flexbox for inner layout) */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-content a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-content h3 {
+    text-decoration: underline 2px;
+}
+
+.content-top {
+    border-bottom: 2px solid #B57EDC;
+    padding-bottom: 15px;
+}
+
+.featured-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Specific Content Areas */
+.content-mid-left, .content-mid-right, 
+.content-low-left, .content-low-right,
+.content-blog {
+    background-color: #212121;
+    padding: 15px;
+}
+
+/* Blog */
+.blog img {
+    width: 100%;
+    height: 100%;
+}
+
+.blog-article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #333333;
+}
+
+.blog-article .date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-container h4 {
+    margin: 0;
+}
+
+.date-container a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #b680da;
+}
+
+#see-more {
+    background-color: #333333;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+#see-more:hover {
+    background-color: #444444;
+}
+
+/* Media Queries */
+
+@media (max-width: 991px) {
+    .parent {
+        grid-template-columns: minmax(0px, 1fr) repeat(8, minmax(0, 96px)), minmax(0px, 1fr);
+    }
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .header-nav .links {
+        flex-wrap: wrap;
+    }
+    .header-nav .links a {
+        height: 2.5rem;
+        padding: 5px 10px;
+    }
+    .header-nav .links a span {
+        height: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .parent {
+        /* Center column 100% wide, sidebars effectively disabled (0px) */
+        grid-template-columns: 0px 1fr 0px;
+        grid-template-areas:
+            "h h h"
+            "mc mc mc" /* Sidebars (sl and sr) are omitted here */
+            "f f f";
+    }
+
+    .sidebar-left, .sidebar-right {
+        display: none; /* Disabling columns for cleaner 100% width */
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .header-nav .links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .header-nav .links a {
+        height: auto;
+        padding: 10px;
+        width: 28rem;
+    }
+    
+    .header-nav .links a span {
+        height: auto;
+    }
+    
+    .header-social {
+        justify-content: center;
+    }
+}
+
+/* Ensure all images are responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    background-color: #212121;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding-bottom: 20px;
+    /* Added to ensure track doesn't collapse */
+    width: 100%; 
+}
+
+.carousel-slide {
+    min-width: 100%;
+    /* Ensure slides don't shrink */
+    flex-shrink: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.carousel-slide h6 {
+    margin: 15px 0 0 0;
+    text-align: center;
+    color: #debef5;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #b680da;
+    border: 2px solid #b680da;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background-color: #b680da;
+    color: #111111;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.fullscreen-btn {
+    top: 10px;
+    right: 10px;
+    left: auto;
+    transform: none;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+}
+
+/* Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4B3B61;
+    cursor: pointer;
+}
+
+.indicator.active { background-color: #b680da; }
+
+/* FIX: Fullscreen Mode Logic */
+/* Apply styles to BOTH the browser pseudo-class and your manual class */
+.carousel:fullscreen, 
+.carousel.fullscreen {
+    display: flex !important;
+    flex-direction: column;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    background-color: #111111;
+    padding: 60px 0; /* Padding on top/bottom for UI */
+    box-sizing: border-box;
+    overflow: hidden; /* Critical for the track transform to work */
+}
+
+/* Ensure the track container maintains the viewport width */
+.carousel:fullscreen .carousel-track,
+.carousel.fullscreen .carousel-track {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+    height: 100%;
+}
+
+.carousel:fullscreen .carousel-slide,
+.carousel.fullscreen .carousel-slide {
+    height: 100%;
+    justify-content: center;
+    /* Ensure slide stays exactly the width of the screen */
+    min-width: 100vw; 
+}
+
+.carousel:fullscreen .carousel-slide img,
+.carousel.fullscreen .carousel-slide img {
+    max-width: 95vw;
+    max-height: 70vh;
+}
+
+.carousel:fullscreen .carousel-slide h6,
+.carousel.fullscreen .carousel-slide h6 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* UI Adjustments for Fullscreen */
+.carousel:fullscreen .carousel-btn,
+.carousel.fullscreen .carousel-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+}
+
+.carousel:fullscreen .fullscreen-btn,
+.carousel.fullscreen .fullscreen-btn {
+    top: 20px;
+    right: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-slide img { max-height: 250px; }
+    .prev-btn { left: 20px; }
+    .next-btn { right: 20px; }
+}
+
+/* Parallax Sections */
+.parallax-section {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.parallax-content {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(33, 33, 33, 0.9);
+    padding: 30px;
+    max-width: 600px;
+    margin: 80px;
+    border-radius: 8px;
+    border: 1px solid #4B3B61;
+}
+
+.parallax-content h2 {
+    margin-top: 0;
+    text-decoration: underline 2px;
+}
+
+.parallax-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Responsive Parallax */
+@media (max-width: 768px) {
+    .parallax-section {
+        min-height: 300px;
+    }
+    
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+    
+    .parallax-content {
+        padding: 20px;
+        margin: 10px;
+    }
+}

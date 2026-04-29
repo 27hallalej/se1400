@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="carousel.js" defer></script>
+    <title>Homepage</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent">
+        <header class="grid-item header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="logo.png" alt="Logo" class="logo">
+                </div>
+                <nav class="grid-item nav header-nav">
+                    <div class="nav-item links">
+                        <a href="index.html" id="active"><span>Home</span></a>
+                        <a href="about.html"><span>About</span></a>
+                        <a href="portfolio.html"><span>Portfolio</span></a>
+                        <a href="blog.html"><span>Blog</span></a>
+                    </div>
+                </nav>
+                <div class="header-social">
+                    <a href="#" aria-label="LinkedIn">&#9679;</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="grid-item main-content">
+            <section class="content-top">
+                <div class="img-header">
+                    <img src="top.jpg" class="featured-img">
+                    <h2 style="text-align: center;">Welcome to Maddie's Website</h2>
+                </div>
+            </section>
+            
+            <section class="content-mid-left">
+                <h3>About Me</h3>
+                <p>My name is Madison Alexandra Hall. My favorite placeholder text is "Lorem ipsum dolor sit amet."</p>
+                <h4><a href="about.html" id="see-more">Read more...</a></h4>
+            </section>
+            <section class="content-mid-right">
+                <h3>My Skills</h3>
+                <p>I am extraordinarily skilled at typing "lorem ipsum dolor sit amet," among other things. You can find some of my skills on the "About Me" page, listed above.</p>
+            </section>
+            <section class="content-low-left">
+                <h3>Portfolio</h3>
+                <p>I have lots of experience in engineering, computer science, and placeholder text. Lorem ipsum dolor sit amet.</p>
+            </section>
+            <section class="content-low-right">
+                <h3><a href="#bottom">Contact Me</a></h3>
+                <p>Click the above text to go to the bottom of the page, where my (unforunately fictional) contact lives, metaphorically speaking.</p>
+            </section>
+            <section class="content-blog">
+                <h3>Blog</h3>
+                <div class="blog">
+                    <div class="blog-article" id="April-24">
+                        <div class="date-container">
+                            <h4>April 24, 2026</h4>
+                            <a href="#April-22">↓</a>
+                        </div>
+                        <p>
+                            The National Weather Service in Norman, Oklahoma has issued a preliminary rating of EF4 to the violent tornado which struck Enid, Oklahoma during the afternoon hours of April 23, 2026.<br><br>
+                            The environment was not necessarily anticipated to support such a violent tornado; mesoscale discussions less than an hour prior to the incident only forecast maximum intensities in the mid-EF3 range.
+                            According to KOCO News, no casualties were reported. Still, Vance Air Force Base and surrounding neighborhoods took heavy losses. Facilities at Vance AFB have begun to reopen, and the power has been fully restored.
+                        </p>
+                        <div class="carousel">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="enid.webp" alt="The tornado viewed over Enid">
+                                    <h6>The tornado reddened over Enid as it swept away homes, trees, and even the dirt from the ground.</h6>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="house.webp" alt="This house was entirely swept away, leaving nothing but a pile of bricks and rubble in the foundation">
+                                    <h6>Perhaps at the zenith of the tornado's strength, a well-built house was entirely swept away from its foundation.</h6>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="koco-heli.webp" alt="Helicopter footage of the aftermath of the tornado displays ground scouring">
+                                    <h6>Ground scouring was observed in the aftermath of the tornado, as seen from a bird's eye view.</h6>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev-btn" aria-label="Previous image">&#10094;</button>
+                            <button class="carousel-btn next-btn" aria-label="Next image">&#10095;</button>
+                            <button class="carousel-btn fullscreen-btn" aria-label="Enter fullscreen">&#x26F6;</button>
+                            <div class="carousel-caption"></div>
+                            <div class="carousel-indicators"></div>
+                        </div>
+                        <p>
+                            This onslaught of severe weather is expected to continue for the next four days, centered mostly around Oklahoma and Kansas.
+                        </p>
+                    </div>
+                    <div class="blog-article" id="April-22">
+                        <div class="date-container">
+                            <h4>April 22, 2026</h4>
+                            <a href="#April-24">↑</a>
+                        </div>
+                        <p>The National Weather Service has issued the new Day 1-8 outlooks. Severe weather seems to be omnipresent throughout the next week, especially in 4 to 5 days, wherein a heightened Enhanced (30% chance of significant weather) risk has been issued.</p>
+                        <img src="outlooks.png">
+                        <p>This risk for severe weather should be very concerning for those in Oklahoma and Kansas. Stay weather aware!</p>
+                    </div>
+                    <h4><a href="blog.html" id="see-more">See more...</a></h4>
+                </div>
+            </section>
+        </main>
+
+        <footer class="grid-item footer" id="bottom">
+            <p> Copyright 2026 Madison Hall | <a href="mailto:maddie@gmail.com">Email Me</a></p>
+        </footer>
+    </div>
+</body>
+</html>

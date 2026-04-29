@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Madison Hall</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent">
+        <header class="grid-item header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img src="logo.png" alt="Logo" class="logo">
+                </div>
+                <nav class="grid-item nav header-nav">
+                    <div class="nav-item links">
+                        <a href="index.html"><span>Home</span></a>
+                        <a href="about.html"><span>About</span></a>
+                        <a href="portfolio.html" id="active"><span>Portfolio</span></a>
+                        <a href="blog.html"><span>Blog</span></a>
+                    </div>
+                </nav>
+                <div class="header-social">
+                    <a href="#" aria-label="LinkedIn">&#9679;</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="grid-item main-content">
+            <section class="content-top">
+                <div class="img-header">
+                    <img src="top.jpg" class="featured-img">
+                    <h2 style="text-align: center;">My Portfolio</h2>
+                </div>
+            </section>
+            
+            <section class="content-mid-left">
+                <h3>Axa Linux</h3>
+                <p>This linux distro is a personal project of mine. It's about halfway done now, and will be open to the public by around mid-summer. I'm making my own init system, package manager, and window manager,
+                    all to test my Linux knowledge.
+                </p>
+                <h4>What is Axa Linux?</h4>
+                <p>It's an "ecosystem" of different products (the distro, the init system, the package manager, etc.) that adheres to three main principles:</p>
+                <ul>
+                    <li>Open-source, no-license software</li>
+                    <li>Suckless (minimalistic) code</li>
+                    <li>Extensive language compatibility</li>
+                </ul>
+            </section>
+            <section class="content-mid-right">
+                <h3>Opaline and Bfly</h3>
+                <p>Opaline is a simple encryption software that turns files into images and videos. There's a video online that showcases it, but it's not going to sound or look pretty since it's just the raw data forced into a video. Still entertaining.</p>
+                <p>It's written in Python, and has a <a href="https://github.com/Sojiniiii/opaline-cipher", style="text-decoration: underline;">github repository</a> available.</p>
+                <br>
+                <p>Similarly, bfly is an encryption algorithm that uses zipf's law to encrypt data. You input plain text documents (like the ones you can find on Project Gutenberg), and it will count how many of each word is present in the text or texts you input.</p>
+                <p>Then, it attributes simple chunks of bits which are inversely proportional to the number of instances of each word, such that common words like "the" will have a low bit value (like 10) and complex words like "obsequious" would have a high bit balue (like 110101).</p>
+                <p>These bit values then become the seed for a series of pseudo random number generators which scramble your precious data.</p>
+                <p>It's coded in Rust, and is not available to the public yet.</p>
+            </section>
+            <section class="content-low-left">
+                <h3>Other</h3>
+                <p>These are my only two accomplishments in the coding world. I have done nothing else with my life, sadly.</p>
+            </section>
+        </main>
+
+        <footer class="grid-item footer" id="bottom">
+            <p> Copyright 2026 Madison Hall | <a href="mailto:maddie@gmail.com">Email Me</a></p>
+        </footer>
+    </div>
+</body>
+</html>
